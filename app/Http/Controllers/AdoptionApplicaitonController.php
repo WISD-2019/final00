@@ -15,6 +15,8 @@ class AdoptionApplicaitonController extends Controller
     public function index()
     {
         //
+        $adoptionApplications=Auth::user()->member()->adoption_applications()->where()->get();
+        return view('', ['adoptionApplications'=>$adoptionApplications]);
     }
 
     /**
@@ -25,6 +27,7 @@ class AdoptionApplicaitonController extends Controller
     public function create()
     {
         //
+        return view('');
     }
 
     /**
@@ -36,6 +39,8 @@ class AdoptionApplicaitonController extends Controller
     public function store(Request $request)
     {
         //
+        auth()->user()->member()->adoption_applications()->create($request->all());
+
     }
 
     /**
@@ -44,9 +49,11 @@ class AdoptionApplicaitonController extends Controller
      * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function show(AdoptionApplicaiton $adoptionApplicaiton)
+    public function show(AdoptionApplicaiton $adoptionApplication)
     {
         //
+        return view('', ['adoptionApplication'=>$adoptionApplication]);
+
     }
 
     /**
@@ -55,9 +62,10 @@ class AdoptionApplicaitonController extends Controller
      * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function edit(AdoptionApplicaiton $adoptionApplicaiton)
+    public function edit(AdoptionApplicaiton $adoptionApplication)
     {
         //
+        return view('', ['adoptionApplication'=>$adoptionApplication]);
     }
 
     /**
@@ -67,9 +75,10 @@ class AdoptionApplicaitonController extends Controller
      * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdoptionApplicaiton $adoptionApplicaiton)
+    public function update(Request $request, AdoptionApplicaiton $adoptionApplication)
     {
         //
+        $adoptionApplication->update($request->all());
     }
 
     /**
@@ -78,8 +87,9 @@ class AdoptionApplicaitonController extends Controller
      * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AdoptionApplicaiton $adoptionApplicaiton)
+    public function destroy(AdoptionApplicaiton $adoptionApplication)
     {
         //
+        $adoptionApplication->delete();
     }
 }
