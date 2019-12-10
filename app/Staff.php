@@ -11,4 +11,13 @@ class Staff extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function evaluating_adoption_applications()
+    {
+        return $this->hasMany(AdoptionApplicaiton::class, 'evaluator_id');
+    }
+    public function approving_adoption_applications()
+    {
+        return $this->hasMany(AdoptionApplicaiton::class, 'approver_id');
+    }
+
 }

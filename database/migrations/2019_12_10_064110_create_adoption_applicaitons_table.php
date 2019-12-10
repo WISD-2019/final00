@@ -18,7 +18,8 @@ class CreateAdoptionApplicaitonsTable extends Migration
             $table->timestamps();
             $table->integer('member_id');
             $table->integer('animal_id');
-
+            $table->integer('evaluator_id');
+            $table->integer('approver_id');
         });
     }
 
