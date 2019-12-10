@@ -17,6 +17,8 @@ class CreateAdoptionApplicaitonsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->integer('member_id');
+            $table->integer('animal_id');
+
         });
     }
 
