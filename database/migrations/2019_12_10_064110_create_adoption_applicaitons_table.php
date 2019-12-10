@@ -16,6 +16,7 @@ class CreateAdoptionApplicaitonsTable extends Migration
         Schema::create('adoption_applicaitons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->integer('member_id');
         });
     }
 

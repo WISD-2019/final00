@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class AdoptionApplicaiton extends Model
 {
     //
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
 }

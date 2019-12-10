@@ -11,4 +11,9 @@ class Member extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function adoption_applications()
+    {
+        return $this->hasMany(AdoptionApplicaiton::class);
+    }
 }
