@@ -10,4 +10,9 @@ class Animal extends Model
     {
         return $this->hasOne(AdoptionApplicaiton::class);
     }
+    public function adopter()
+    {
+        return $this->belongsTo(Member::class);
+    }
+
 }

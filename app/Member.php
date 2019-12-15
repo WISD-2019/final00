@@ -16,4 +16,9 @@ class Member extends Model
     {
         return $this->hasMany(AdoptionApplicaiton::class);
     }
+    public function adoptedAnimals()
+    {
+        return $this->hasMany(Animal::class);
+    }
+
 }
