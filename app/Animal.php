@@ -8,7 +8,7 @@ class Animal extends Model
 {
     public function adoption_application()
     {
-        return $this->hasOne(AdoptionApplicaiton::class);
+        return $this->hasOne(AdoptionApplication::class);
     }
     public function adopter()
     {

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\AdoptionApplicaiton;
+use App\AdoptionApplication;
 use Illuminate\Http\Request;
 
-class AdoptionApplicaitonController extends Controller
+class AdoptionApplicationController extends Controller
 {
     public function __construct()
     {
@@ -19,8 +19,8 @@ class AdoptionApplicaitonController extends Controller
      */
     public function index()
     {
-        //
-        $adoptionApplications=Auth::user()->member()->adoption_applications()->where()->get();
+        //取得尚未審核過關的領養申請
+        $adoptionApplications=Auth::user()->member->adoption_applications()->whereNull('approval')->get();
         return view('', ['adoptionApplications'=>$adoptionApplications]);
     }
 
@@ -44,17 +44,17 @@ class AdoptionApplicaitonController extends Controller
     public function store(Request $request)
     {
         //
-        auth()->user()->member()->adoption_applications()->create($request->all());
+        auth()->user()->member->adoption_applications()->create($request->all());
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
+     * @param  \App\AdoptionApplication  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function show(AdoptionApplicaiton $adoptionApplication)
+    public function show(AdoptionApplication $adoptionApplication)
     {
         //
         return view('', ['adoptionApplication'=>$adoptionApplication]);
@@ -64,10 +64,10 @@ class AdoptionApplicaitonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
+     * @param  \App\AdoptionApplication  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function edit(AdoptionApplicaiton $adoptionApplication)
+    public function edit(AdoptionApplication $adoptionApplication)
     {
         //
         return view('', ['adoptionApplication'=>$adoptionApplication]);
@@ -77,10 +77,10 @@ class AdoptionApplicaitonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
+     * @param  \App\AdoptionApplication  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdoptionApplicaiton $adoptionApplication)
+    public function update(Request $request, AdoptionApplication $adoptionApplication)
     {
         //
         $adoptionApplication->update($request->all());
@@ -89,10 +89,10 @@ class AdoptionApplicaitonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\AdoptionApplicaiton  $adoptionApplicaiton
+     * @param  \App\AdoptionApplication  $adoptionApplicaiton
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AdoptionApplicaiton $adoptionApplication)
+    public function destroy(AdoptionApplication $adoptionApplication)
     {
         //
         $adoptionApplication->delete();

@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('adoption_applications', 'AdoptionApplicaitonController');
+Route::resource('adoption_applications', 'AdoptionApplicationController');

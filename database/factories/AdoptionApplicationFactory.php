@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\AdoptionApplicaiton;
+use App\AdoptionApplication;
 use Faker\Generator as Faker;
 
-$factory->define(AdoptionApplicaiton::class, function (Faker $faker) {
+$factory->define(AdoptionApplication::class, function (Faker $faker) {
     return [
         //
     ];

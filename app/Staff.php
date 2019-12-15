@@ -13,11 +13,11 @@ class Staff extends Model
     }
     public function evaluating_adoption_applications()
     {
-        return $this->hasMany(AdoptionApplicaiton::class, 'evaluator_id');
+        return $this->hasMany(AdoptionApplication::class, 'evaluator_id');
     }
     public function approving_adoption_applications()
     {
-        return $this->hasMany(AdoptionApplicaiton::class, 'approver_id');
+        return $this->hasMany(AdoptionApplication::class, 'approver_id');
     }
 
 }

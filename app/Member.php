@@ -14,7 +14,7 @@ class Member extends Model
 
     public function adoption_applications()
     {
-        return $this->hasMany(AdoptionApplicaiton::class);
+        return $this->hasMany(AdoptionApplication::class);
     }
     public function adoptedAnimals()
     {
