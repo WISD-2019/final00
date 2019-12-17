@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AdoptionApplication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdoptionApplicationController extends Controller
 {
