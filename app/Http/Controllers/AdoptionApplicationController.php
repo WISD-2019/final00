@@ -20,8 +20,8 @@ class AdoptionApplicationController extends Controller
      */
     public function index()
     {
-        //取得尚未審核過關的領養申請
-        $adoptionApplications=Auth::user()->member->adoption_applications()->whereNull('approval')->get();
+        //取得會員所有的領養申請
+        $adoptionApplications=Auth::user()->member->adoption_applications()->get();
         return view('', ['adoptionApplications'=>$adoptionApplications]);
     }
 
