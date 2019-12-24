@@ -9,7 +9,7 @@ class AdoptionApplication extends Model
     //
     public function applicant()
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(Member::class, 'member_id');
     }
     public function animal()
     {

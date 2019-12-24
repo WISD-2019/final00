@@ -18,7 +18,7 @@ class Member extends Model
     }
     public function adoptedAnimals()
     {
-        return $this->hasMany(Animal::class);
+        return $this->hasMany(Animal::class, 'member_id');
     }
 
 }

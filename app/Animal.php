@@ -12,7 +12,11 @@ class Animal extends Model
     }
     public function adopter()
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(Member::class, 'memeber_id');
+    }
+    public function shelter()
+    {
+        return $this->belongsTo(Shelter::class);
     }
 
 }
